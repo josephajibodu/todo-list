@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./todoList.js"></script>
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-box" id="todo-box">
+        <div class="todo-item">
+          <p>Cardvest Mobile app revamp - phase 1</p>
+          <button data-id="1">Remove</button>
+        </div>
+      </div>
+      <div class="input-box">
+        <textarea
+          id="todoDescriptionInput"
+          type="text"
+          rows="10"
+          placeholder="Enter your to do item"
+        ></textarea>
+        <button id="addItemBtn">Add Item</button>
+      </div>
+    </div>
+  </body>
+</html>
