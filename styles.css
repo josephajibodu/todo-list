@@ -17,9 +17,10 @@
 }
 
 .todo-item {
-  border-left: 4px solid rebeccapurple;
   padding: 1rem;
-  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .todo-item p {
