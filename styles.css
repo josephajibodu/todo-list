@@ -49,9 +49,12 @@ button {
   font-size: 0.9rem;
   border-radius: 1.1rem;
   border: none;
+  margin-top: 10px;
   background-color: aqua;
 }
-
+.statusButton{
+  margin: 0px 20px;
+}
 button:hover {
   cursor: pointer;
   background-color: rgb(7, 160, 160);
