@@ -30,19 +30,12 @@ function addTaskToScreen(task) {
 
   // Create a p
   let para = document.createElement("p");
-
-  // check if task.status == true
-    // Yes - add class that gives it line-through
-    // No - do nothing\
-
-    para.style.textDecoration = "line-through"
-
   // Add text to the p
   let textNode = document.createTextNode(task.description);
   para.appendChild(textNode);
 
   // Add the para to div
-  div.appendChild(para);
+  div.appendChild(para); 
 
   // Adding Delete Button .. <button data-id="1">Remove</button>
   let delBtn = document.createElement('button');
@@ -54,8 +47,32 @@ function addTaskToScreen(task) {
   delBtn.addEventListener('click', handleDeleteTask);
   
   div.appendChild(delBtn);
+
+//adding checkBox <input type="checkbox" id="">
+  let checkBox = document.createElement('input');
+  checkBox.classList.add('statusButton');
+  // checkBox.setAttribute('class', 'statusButton');
+  checkBox.setAttribute('type', 'checkbox');
+
+  checkBox.addEventListener('change', () => {
+    if (checkBox.checked) {
+      para.style.textDecoration = "line-through";
+      para.style.color = "red";
+      markTaskAsDone(task.id);
+      console.log('done');
+    } else {
+      para.style.textDecoration = "none";
+      para.style.color = "black";
+      task.status = false;
+    };
+  }
+  );
+
+  div.appendChild(checkBox);
+
   // Add the div to todo-box
   todoBox.appendChild(div);
+
 }
 
 function refreshTasksOnScreen() {
@@ -72,6 +89,15 @@ function handleDeleteTask(event) {
   removeATask(taskId);
   refreshTasksOnScreen();
 }
+
+//function to invoke when a task is completed
+// function handleDoneTask(checkTask) {
+//   if (checkTask.checked == true) {
+//     para.style.textDecoration = "line-through";
+//     markTaskAsDone(task.id);
+//     console.log('done');
+//   } else;
+// }
 
 addItemButton.addEventListener("click", handleSubmitButton);
 refreshTasksOnScreen();

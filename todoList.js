@@ -54,7 +54,7 @@ function createTask(id, description) {
   };
 }
 
-// addNewTask("Meeting by 1pm")
+addNewTask("Meeting by 1pm")
 // addNewTask("Practice on DS and Algorithms")
 
 
