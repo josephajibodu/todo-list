@@ -31,13 +31,29 @@ function addTaskToScreen(task) {
   // Create a p
   let para = document.createElement("p");
 
+  // check if task.status == true
+    // Yes - add class that gives it line-through
+    // No - do nothing\
+
+    para.style.textDecoration = "line-through"
+
   // Add text to the p
-  let textNode = document.createTextNode(task);
+  let textNode = document.createTextNode(task.description);
   para.appendChild(textNode);
 
   // Add the para to div
   div.appendChild(para);
 
+  // Adding Delete Button .. <button data-id="1">Remove</button>
+  let delBtn = document.createElement('button');
+  delBtn.setAttribute('data-id', task.id);
+  let delText = document.createTextNode("Delete");
+  delBtn.appendChild(delText);
+  
+  // Add delete event to button
+  delBtn.addEventListener('click', handleDeleteTask);
+  
+  div.appendChild(delBtn);
   // Add the div to todo-box
   todoBox.appendChild(div);
 }
@@ -46,8 +62,15 @@ function refreshTasksOnScreen() {
   todoBox.innerHTML = '';
 
   getTodoList().forEach(function (task) {
-    addTaskToScreen(task.description);
+    addTaskToScreen(task);
   });
+}
+
+function handleDeleteTask(event) {
+  const taskId = event.target.getAttribute('data-id');
+  
+  removeATask(taskId);
+  refreshTasksOnScreen();
 }
 
 addItemButton.addEventListener("click", handleSubmitButton);

@@ -14,10 +14,9 @@ function addNewTask(task) {
 
 // Remove a task
 function removeATask(taskId) {
-
   const indexOfTask = todoItems.findIndex(
     function (task) {
-      if (task.id === taskId) return true;
+      if (task.id === Number(taskId)) return true;
       else return false;
     }
   );
@@ -55,10 +54,8 @@ function createTask(id, description) {
   };
 }
 
-
-addNewTask("Cardvest Mobile app revamp - phase 1");
-addNewTask("HYBitrage Ethereum trading page");
-
+// addNewTask("Meeting by 1pm")
+// addNewTask("Practice on DS and Algorithms")
 
 
 // https://www.tasks.com
